@@ -1,5 +1,9 @@
 Foi criado esse projeto com intuito de mostrar o appium lib core e rspec.
 
+
+Pré-requisito:
+[Instalar Ruby](https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.0.6-1/rubyinstaller-devkit-3.0.6-1-x64.exe)
+
 ### 1. Para subir o servido localmente com NPM
 
 Start Appium server (Appium 2.0 base)  
