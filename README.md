@@ -19,6 +19,7 @@ Comando para instalar as bibliotecas:
 ```
 gem install bundler   
 gem update --system  
+bundle update --bundler
 bundle install  
 ```
 

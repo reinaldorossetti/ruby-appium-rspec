@@ -32,10 +32,8 @@ jobs:
           bundler-cache: true
       - name: Run tests
         run: |
-             gem install allure-rspec
-             gem install httparty
              bundler install
-             bundle exec rspec spec/tests/register_user.rb
+             bundle exec rspec ./spec/tests/**/*.* --format AllureRspecFormatter
           
       - name: Test marketplace action
         uses: simple-elf/allure-report-action@master
