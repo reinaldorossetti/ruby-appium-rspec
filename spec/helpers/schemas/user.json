@@ -1,0 +1,54 @@
+{
+    "type": "object",
+    "description": "schema user.",
+    "default": {},
+    "required": [
+        "nome",
+        "email",
+        "password",
+        "administrador"
+    ],
+    "additionalProperties": true,
+    "properties": {
+        "nome": {
+            "$id": "#/properties/nome",
+            "type": "string",
+            "title": "The nome schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                "Keenan Waters"
+            ]
+        },
+        "email": {
+            "$id": "#/properties/email",
+            "type": "string",
+            "title": "The email schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                "aron@williamson-osinski.io"
+            ]
+        },
+        "password": {
+            "$id": "#/properties/password",
+            "type": "string",
+            "title": "The password schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                "LgSvJyNeEjYi90A"
+            ]
+        },
+        "administrador": {
+            "$id": "#/properties/administrador",
+            "type": "string",
+            "title": "The administrador schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                "true"
+            ]
+        }
+    }
+}

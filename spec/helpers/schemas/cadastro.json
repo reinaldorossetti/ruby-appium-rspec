@@ -1,0 +1,27 @@
+{
+    "type": "object",
+    "description": "schema post register user.",
+    "default": {},
+    "required": [
+        "message",
+        "_id"
+    ],
+    "additionalProperties": true,
+    "properties": {
+        "message": {
+            "$id": "#/properties/message",
+            "type": "string",
+            "default": "Cadastro realizado com sucesso",
+            "minLength": 2,
+            "maxLength": 100, 
+            "pattern": "[a-z]"
+        },
+        "_id": {
+            "$id": "#/properties/_id",
+            "type": "string",
+            "default": "",
+            "minLength": 16,
+            "maxLength": 100
+        }
+    }
+}
