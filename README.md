@@ -2,34 +2,36 @@ Foi criado esse projeto com intuito de mostrar o appium lib core e rspec.
 
 ### 1. Para subir o servido localmente com NPM
 
-Start Appium server (Appium 2.0 base)
-$ npm install --location=global appium
-$ appium driver install xcuitest
-$ appium driver install uiautomator2
-$ appium --base-path=/wd/hub --relaxed-security --allow-cors # To run all tests in local
-
-Para baixar o projeto:
+Start Appium server (Appium 2.0 base)  
 ```sh
-git clone https://github.com/reinaldorossetti/ruby-appium-rspec.git
+npm install --location=global appium  
+appium driver install xcuitest  
+appium driver install uiautomator2  
+appium --base-path=/wd/hub --relaxed-security --allow-cors # To run all tests in local  
 ```
 
-Comando para instalar as bibliotecas:
-```
-gem install bundler 
-gem update --system
-bundle install
+Para baixar o projeto:  
+```sh
+git clone https://github.com/reinaldorossetti/ruby-appium-rspec.git  
 ```
 
-Comando para rodar os testes da feature de usuários:
+Comando para instalar as bibliotecas:  
 ```
-bundle exec rspec ./spec/tests/**/*.* --format AllureRspecFormatter
+gem install bundler   
+gem update --system  
+bundle install  
+```
+
+Comando para rodar os testes da feature de usuários:  
+```
+bundle exec rspec ./spec/tests/**/*.* --format AllureRspecFormatter  
 ```
 Para visualizar o relatório gerado do allure report, segue o link abaixo:
 ```
-https://reinaldorossetti.github.io/ruby-appium-rspec/
+https://reinaldorossetti.github.io/ruby-appium-rspec/  
 ```
 
 Referências:  
-https://github.com/appium/ruby_lib_core
-https://appium.readthedocs.io/en/stable/en/commands/README/
-https://appium.readthedocs.io/en/stable/en/commands/element/find-element/
+https://github.com/appium/ruby_lib_core  
+https://appium.readthedocs.io/en/stable/en/commands/README/  
+https://appium.readthedocs.io/en/stable/en/commands/element/find-element/  
