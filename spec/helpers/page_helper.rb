@@ -7,4 +7,5 @@ module Pages
   def page_register
     RegisterUser.new
   end
+
 end

@@ -10,7 +10,8 @@ require 'em/pure_ruby'
 require 'appium_lib_core'
 require 'yaml'
 
-$LOCATOR_DIR = File.join(File.dirname(__FILE__), "/tests/locators")
+# Ler as Pages
+$LOCATOR_DIR = File.join(File.dirname(__FILE__), "/tests/locators/")
 require_relative './helpers/page_helper.rb'
 
 # Define o driver como global, para ler nas Pages.

@@ -1,6 +1,6 @@
 class RegisterUser
-  language_yaml = YAML.load_file($LOCATOR_DIR + "/resgister_user_locator.yml")
-  @@page = OpenStruct.new(language_yaml)
+
+  @@page = OpenStruct.new(YAML.load_file($LOCATOR_DIR + "resgister_user_locator.yml"))
 
   def cadastrar_usuario
     $driver.find_element(:id, @@page.btn_cadastrar_usuario).click
