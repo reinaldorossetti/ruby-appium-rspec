@@ -11,7 +11,9 @@ Start Appium server (Appium 2.0 base)
 npm install --location=global appium  
 appium driver install xcuitest  
 appium driver install uiautomator2  
-appium --base-path=/wd/hub --relaxed-security --allow-cors # To run all tests in local  
+appium plugin install execute-driver
+# To run all tests in local Windows:  
+appium server -p 4723 -a 127.0.0.1 -pa wd/hub  --allow-insecure ALLOW_INSECURE --allow-cors
 ```
 
 Para baixar o projeto:  

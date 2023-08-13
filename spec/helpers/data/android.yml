@@ -1,0 +1,5 @@
+platformName: 'android'
+deviceName: 'Nexus6_API30'
+appPath: "C:\\GitHub\\KotlinAppium\\src\\main\\resources\\alura_esporte.apk"
+automationName: 'uiautomator2'
+deviceUDID: "emulator-5554"

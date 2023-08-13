@@ -8,26 +8,38 @@ require 'rspec'
 require 'allure-rspec'
 require 'em/pure_ruby'
 require 'appium_lib_core'
+require 'yaml'
 
-@rspec_yml = YAML.load_file("#{Dir.pwd}/spec/helpers/rspec.yml")
-@ambiente = @rspec_yml['ambiente']
 
-CONFIG = YAML.load_file("#{Dir.pwd}/spec/helpers/data/#{@ambiente}.yml")
-
-opts = {
-  capabilities: { # Append capabilities
-    platformName: 'android',
-    deviceName: 'Nexus6_API30',
-    app: "C:\\GitHub\\KotlinAppium\\src\\main\\resources\\alura_esporte.apk",  # Without 'app' capability, an appium session starts with the home screen
-    automationName: 'uiautomator2',
-    deviceUDID: "emulator-5554",
-    autoGrantPermissions: true,
-    autoAcceptAlerts: true
-  },
-  appium_lib: {
-    wait: 30
+def device_config(dv)
+  opts = {
+    capabilities: { # Append capabilities
+      platformName: dv['platformName'],
+      deviceName: dv['deviceName'],
+      app: dv['appPath'],
+      automationName: dv['automationName'],
+      deviceUDID: dv['deviceUDID'],
+      autoGrantPermissions: true,
+      autoAcceptAlerts: true
+    },
+    appium_lib: {
+      wait: 30
+    }
   }
-}
+  return opts
+end
+
+if ENV["device"].to_s == "android"
+  device_obj = YAML.load_file("#{Dir.pwd}/spec/helpers/data/android.yml")
+  opts = device_config(device_obj)
+elsif ENV["device"].to_s == "ios"
+  device = YAML.load_file("#{Dir.pwd}/spec/helpers/data/ios.yml")
+  opts = device_config(device)
+else
+  puts "Precisa setar o device  device=android ou device=ios"
+end
+
+puts opts
 
 AllureRspec.configure do |c|
   c.results_directory = 'report/allure-results'
@@ -46,7 +58,7 @@ RSpec.configure do |config|
   end
 
   config.after :all do
-    @core.quit_driver
+    @driver.quit
   end
 
   # rspec-expectations config goes here. You can use an alternate
