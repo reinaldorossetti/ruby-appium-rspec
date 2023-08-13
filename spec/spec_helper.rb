@@ -10,7 +10,13 @@ require 'em/pure_ruby'
 require 'appium_lib_core'
 require 'yaml'
 
+$LOCATOR_DIR = File.join(File.dirname(__FILE__), "/tests/locators")
+require_relative './helpers/page_helper.rb'
 
+# Define o driver como global, para ler nas Pages.
+$driver
+
+# Seta as configurações do device
 def device_config(dv)
   opts = {
     capabilities: { # Append capabilities
@@ -29,6 +35,7 @@ def device_config(dv)
   return opts
 end
 
+# Escolhe o device que vai usar, passando como variavel no comando.
 if ENV["device"].to_s == "android"
   device_obj = YAML.load_file("#{Dir.pwd}/spec/helpers/data/android.yml")
   opts = device_config(device_obj)
@@ -41,6 +48,7 @@ end
 
 puts opts
 
+# Adiciona o allure report.
 AllureRspec.configure do |c|
   c.results_directory = 'report/allure-results'
   c.clean_results_directory = true
@@ -48,17 +56,18 @@ end
 
 RSpec.configure do |config|
 
-  #modulo esta como global
+  #Adiciona o modulo Pages como global
+  include Pages
   config.color = true
   config.formatter = :documentation
 
   config.before :all do
     @core = Appium::Core.for(opts) # create a core driver with `opts`
-    @driver = @core.start_driver
+    $driver = @core.start_driver
   end
 
   config.after :all do
-    @driver.quit
+    $driver.quit
   end
 
   # rspec-expectations config goes here. You can use an alternate
